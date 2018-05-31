@@ -1,0 +1,16 @@
+{% set pages = [] %}
+{% for p in page.collection %} {#Par défaut les pages non publiées n'apparaissent pas dans la collection#}
+{% set pages = pages|merge([{
+    title:  p.title ,
+    path:   p.url ,
+    visible:    p.visible,
+    meta:   p.metadata,
+    published: p.published,
+    publishDate: p.publishDate
+}]) %}
+{% endfor %}
+
+{
+    "site": {{ site | json_encode }},
+    "pages":{{ pages | json_encode }}
+}

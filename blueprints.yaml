@@ -1,0 +1,31 @@
+name: Json Site
+version: 0.1.0
+description: Force rendering of jpages as json
+icon: plug
+author:
+  name: DBern
+  email: dbernier@dbern.net
+homepage: https://github.com/bernierdb/grav-plugin-json-site
+demo: http://demo.yoursite.com
+keywords: grav, plugin, etc
+bugs: https://github.com/bernierdb/grav-plugin-json-site/issues
+docs: https://github.com/bernierdb/grav-plugin-json-site/blob/develop/README.md
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    route:
+      type: text
+      label: Route for general site data and menu
+      default: /sitedata
