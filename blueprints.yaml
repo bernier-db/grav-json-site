@@ -5,11 +5,11 @@ icon: plug
 author:
   name: DBern
   email: dbernier@dbern.net
-homepage: https://github.com/bernierdb/grav-plugin-json-site
+homepage: https://github.com/bernier-db/grav-json-site
 demo: http://demo.yoursite.com
 keywords: grav, plugin, etc
-bugs: https://github.com/bernierdb/grav-plugin-json-site/issues
-docs: https://github.com/bernierdb/grav-plugin-json-site/blob/develop/README.md
+bugs: https://github.com/bernierdb/grav-json-site/issues
+docs: https://github.com/bernierdb/grav-json-site/blob/develop/README.md
 license: MIT
 
 form:

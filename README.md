@@ -18,7 +18,7 @@ This will install the Json Site plugin into your `/user/plugins` directory withi
 
 ### Manual Installation
 
-To install this plugin, just download the zip version of this repository and unzip it under `/your/site/grav/user/plugins`. Then, rename the folder to `json-site`. You can find these files on [GitHub](https://github.com/bernierdb/grav-plugin-json-site) or via [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
+To install this plugin, just download the zip version of this repository and unzip it under `/your/site/grav/user/plugins`. Then, rename the folder to `json-site`. You can find these files on [GitHub](https://github.com/bernierdb/grav-json-site) or via [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
 
 You should now have all the plugin files under
 
