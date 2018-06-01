@@ -1,8 +1,8 @@
 # Json Site Plugin
 
-The ** Json Site** Plugin is for [Grav CMS](http://github.com/getgrav/grav). Force rendering of jpages as json
+The **Json Site** Plugin is for [Grav CMS](http://github.com/getgrav/grav). Force rendering of jpages as json
 
-_This plugin is  mainly a simplified version of  [https://github.com/btopro/page-as-data](https://github.com/btopro/page-as-data) _. Please have a look at it fif you need more than json types.
+_This plugin is  mainly a simplified version of  [https://github.com/btopro/page-as-data](https://github.com/btopro/page-as-data)_. Please have a look at it fif you need more than json types.
 
 ## Installation
 
@@ -31,4 +31,4 @@ Main code coming from [https://github.com/btopro/page-as-data](https://github.co
 
 ## To Do
 
-- [ ] Add possibility to exclude urls
+- [x] Add possibility to exclude routes

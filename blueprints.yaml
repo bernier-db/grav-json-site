@@ -1,15 +1,15 @@
 name: Json Site
 version: 0.1.0
-description: Force rendering of jpages as json
+description: Force rendering of site pages in json
 icon: plug
 author:
   name: DBern
   email: dbernier@dbern.net
 homepage: https://github.com/bernier-db/grav-json-site
 demo: http://demo.yoursite.com
-keywords: grav, plugin, etc
-bugs: https://github.com/bernierdb/grav-json-site/issues
-docs: https://github.com/bernierdb/grav-json-site/blob/develop/README.md
+keywords: grav, plugin, json, headless
+bugs: https://github.com/bernier-db/grav-json-site/issues
+docs: https://github.com/bernier-db/grav-json-site/blob/develop/README.md
 license: MIT
 
 form:
@@ -29,3 +29,7 @@ form:
       type: text
       label: Route for general site data and menu
       default: /sitedata
+    routeIgnores:
+      type: array
+      value_only: true
+      label: Routes to exclude

@@ -38,8 +38,14 @@ class JsonSitePlugin extends Plugin
             return;
         }
 
-        // Enable the main event we are interested in
         $uri = $this->grav['uri']->path();
+        $exclusions = $this->config->get('plugins.json-site.routeIgnores');
+
+        if(array_search ($uri, $exclusions) !== false){
+            return;
+        }
+
+
         $route = $this->config->get('plugins.json-site.route');
 
         if ($route && $route == $uri) {
@@ -68,6 +74,7 @@ class JsonSitePlugin extends Plugin
         $pageArray['children'] = $children;
 
         // Other informations about page
+        $pageArray['template'] = $page->template();
         $pageArray['slug'] = $page->slug();
         $pageArray['permalink'] = $page->permalink();
         $pageArray['route'] = $page->route();
