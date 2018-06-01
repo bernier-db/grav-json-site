@@ -1,8 +1,8 @@
 # Json Site Plugin
 
-The **Json Site** Plugin is for [Grav CMS](http://github.com/getgrav/grav). Force rendering of jpages as json
+The **Json Site** Plugin is for [Grav CMS](http://github.com/getgrav/grav). It **forces** every pages to render in json, unless added in the ignore config.
 
-_This plugin is  mainly a simplified version of  [https://github.com/btopro/page-as-data](https://github.com/btopro/page-as-data)_. Please have a look at it if you need more than json type.
+_This plugin was based on [@btopro](https://github.com/btopro)'s [page-as-data](https://github.com/btopro/page-as-data)_ with [Adrian-Mazaud's pull req](https://github.com/btopro/page-as-data/pull/4). Please have a look at it if you need more than json type.
 
 ## Installation
 
@@ -20,16 +20,23 @@ Before configuring this plugin, you should copy the `user/plugins/json-site/json
 
 Here is the default configuration and an explanation of available options:
 
+- Enable or disable the plugin: _true/false_
 ```yaml
-enabled: true #enable or disable the plugin
-route: /sitedata  #url to fetch your basic site data such as published pages, metadata, etc
-routesIgnore: #list of urls you DON'T want in json, but handled as usual 
-  - /sitemap
+enabled: true 
 ```
+- Url to fetch your basic site data such as published pages (for navigation menu), metadata, etc:
+```yaml
+route: /sitedata
+````
+- List of urls you want handled as usual. *Json-site* will ignore them
+````yaml
+routesIgnore:     
+  - /sitemap
+````
 
 ## Credits
 
-Main code coming from [https://github.com/btopro/page-as-data](https://github.com/btopro/page-as-data)
+Main code coming from [https://github.com/btopro/page-as-data](https://github.com/btopro/page-as-data).
 
 ## To Do
 
