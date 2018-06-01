@@ -8,6 +8,11 @@ _This plugin was based on [@btopro](https://github.com/btopro)'s [page-as-data](
 
 To install this plugin, just download the zip version of this repository and unzip it under `/your/site/grav/user/plugins`. Then, rename the folder to `json-site`. You can find these files on [GitHub](https://github.com/bernierdb/grav-json-site).
 
+OR
+````bash
+cd your/site/grav/user/plugins
+git submodule add https://github.com/bernier-db/grav-json-site.git json-site
+````
 You should now have all the plugin files under
 
     /your/site/grav/user/plugins/json-site
