@@ -68,8 +68,12 @@ class JsonSitePlugin extends Plugin
         $collection = $page->collection('content', false);
         $pageArray = $page->toArray();
         $children = array();
+        $i =0;
         foreach ($collection as $item) {
+            $template = $item->template();
             $children[] = $item->toArray();
+            $children[$i]['template'] = $template;
+            $i++;
         }
         $pageArray['children'] = $children;
 
@@ -116,5 +120,4 @@ class JsonSitePlugin extends Plugin
         unset($this->grav['page']);
         $this->grav['page'] = $page;
     }
-
 }

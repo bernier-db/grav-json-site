@@ -1,16 +1,30 @@
 {% set pages = [] %}
-{% for p in page.collection %} {#Par défaut les pages non publiées n'apparaissent pas dans la collection#}
-{% set pages = pages|merge([{
-    title:  p.title ,
-    path:   p.url ,
-    visible:    p.visible,
-    meta:   p.metadata,
-    published: p.published,
-    publishDate: p.publishDate
-}]) %}
-{% endfor %}
 
 {
     "site": {{ site | json_encode }},
-    "pages":{{ pages | json_encode }}
+    "pages":
+    {% for p in page.collection %}
+        {% macro recursiveChildren(currentPage) %}
+                {% set children = [] %}
+
+                {% for c in currentPage.children %}
+                    {% if (c.visible) %}
+                        {% set children = children|merge([_self.recursiveChildren(c)|json_decode ])%}
+                    {% endif %}
+                {% endfor %}
+
+                {{{
+                    title:  currentPage.title ,
+                    url:   currentPage.url ,
+                    icon: currentPage.icon,
+                    template: currentPage.template,
+                    children: children
+                }|json_encode}}
+
+        {% endmacro %}
+
+        {% set pages = pages|merge([_self.recursiveChildren(p)|json_decode]) %}
+    {% endfor %}
+{{ pages | json_encode }}
+
 }
