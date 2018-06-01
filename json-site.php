@@ -1,6 +1,7 @@
 <?php
 namespace Grav\Plugin;
 
+use Grav\Common\Markdown\Parsedown;
 use Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
 use Grav\Common\Page\Page;
@@ -41,7 +42,7 @@ class JsonSitePlugin extends Plugin
         $uri = $this->grav['uri']->path();
         $exclusions = $this->config->get('plugins.json-site.routeIgnores');
 
-        if(array_search ($uri, $exclusions) !== false){
+        if($exclusions && array_search ($uri, $exclusions) !== false){
             return;
         }
 
@@ -68,12 +69,17 @@ class JsonSitePlugin extends Plugin
         $collection = $page->collection('content', false);
         $pageArray = $page->toArray();
         $children = array();
-        $i =0;
-        foreach ($collection as $item) {
+
+        if($page->process()['markdown'] == true){
+            $Parsedown = new Parsedown($page, null);
+            $pageArray['content'] = $Parsedown->parse($pageArray['content']);
+        }
+
+        foreach ($collection as $i=>$item) {
             $template = $item->template();
             $children[] = $item->toArray();
             $children[$i]['template'] = $template;
-            $i++;
+
         }
         $pageArray['children'] = $children;
 
@@ -84,18 +90,24 @@ class JsonSitePlugin extends Plugin
         $pageArray['route'] = $page->route();
         $pageArray['raw_route'] = $page->rawRoute();
         $pageArray['route_canonical'] = $page->routeCanonical();
-        $pageArray['path'] = $page->path();
-        $pageArray['folder'] = $page->folder();
+        //$pageArray['path'] = $page->path();
+        //$pageArray['folder'] = $page->folder();
 
         // Get all medias
+
         $allmedias = $page->media()->all();
         $medias = array();
-        foreach ($allmedias as $item) {
-            $medias[] = $item->toArray();
+        foreach ($allmedias as $i => $item) {
+            $medias[$i] = $item->toArray();
+            $medias[$i]['url'] = $item->url();
+            unset($medias[$i]['filepath']);
+            unset($medias[$i]['path']);
+            unset($medias[$i]['modified']);
+           // unset($medias[$i]['thumbnails']);
         }
         $pageArray['medias'] = $medias;
 
-
+       // dump($this->grav['twig']->twig );
         header("Content-Type: application/json");
         echo json_encode($pageArray);
 
