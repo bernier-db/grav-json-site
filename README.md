@@ -14,7 +14,7 @@ You should now have all the plugin files under
 	
 > NOTE: This plugin is a modular component for Grav which requires [Grav](http://github.com/getgrav/grav) and the [Error](https://github.com/getgrav/grav-plugin-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) to operate.
 
-## Configuration
+## Configuration 
 
 Before configuring this plugin, you should copy the `user/plugins/json-site/json-site.yaml` to `user/config/plugins/json-site.yaml` and only edit that copy.
 
