@@ -36,7 +36,7 @@ routesIgnore:
 
 ## Credits
 
-Main code coming from [https://github.com/btopro/page-as-data](https://github.com/btopro/page-as-data).
+Based on [https://github.com/btopro/page-as-data](https://github.com/btopro/page-as-data).
 
 ## To Do
 
