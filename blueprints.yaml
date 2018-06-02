@@ -12,6 +12,9 @@ bugs: https://github.com/bernier-db/grav-json-site/issues
 docs: https://github.com/bernier-db/grav-json-site/blob/develop/README.md
 license: MIT
 
+dependencies:
+  - cors
+
 form:
   validation: strict
   fields:
